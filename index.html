@@ -623,7 +623,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="#5b9fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 1 4 4v1h1a3 3 0 0 1 0 6h-1v1a4 4 0 0 1-8 0v-1H7a3 3 0 0 1 0-6h1V6a4 4 0 0 1 4-4z"/><path d="M12 6v12M9 9h6M9 15h6"/></svg>
         </div>
         <div class="edge-title">Remembers your exact basis</div>
-        <div class="edge-desc">Your NVDA at $85. Your SOL at $120. Your BTC blended at $41k. Your TSMC RSUs at $340. Pivot knows every position across every asset class and uses it in every analysis.</div>
+        <div class="edge-desc">Your NVDA at $124 basis. Your SOL at $110. Your BTC blended at $58k. Your MSFT RSUs at $380. Pivot knows every position across every asset class and uses it in every analysis.</div>
         <div class="edge-vs">vs advisor: <strong>they guess. Pivot knows.</strong></div>
       </div>
       <div class="edge-card">
@@ -935,7 +935,7 @@
       <div class="quick-replies" id="quick-replies">
         <button class="qr" onclick="sendQuick('Should I average down on ETH at current prices or wait?')">Average down on ETH now?</button>
         <button class="qr" onclick="sendQuick('Am I on track with my BTC and ETH targets?')">Check my targets</button>
-        <button class="qr" onclick="sendQuick('What should I do this week across my full portfolio?')">This week\'s plan</button>
+        <button class="qr" onclick="sendQuick('What should I do this week across my full portfolio?')">This week's plan</button>
         <button class="qr" onclick="sendQuick('Should I sell my NVDA RSUs and rotate into crypto?')">Sell RSUs → crypto?</button>
         <button class="qr" onclick="sendQuick('What is the ETH/BTC ratio and what does it mean for my strategy?')">ETH/BTC ratio update</button>
       </div>
@@ -1213,7 +1213,7 @@ Keep responses under 200 words unless running a multi-scenario analysis. Be thei
     showTyping();
 
     try {
-      const response = await fetch('https://api.anthropic.com/v1/messages', {
+      const response = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -1245,24 +1245,24 @@ Keep responses under 200 words unless running a multi-scenario analysis. Be thei
 
   function generateFallback(query) {
     const q = query.toLowerCase();
-    if (q.includes('meta') && q.includes('700')) {
-      return `At META $700 you net ~$66,940 after the $3,060 tax (20% on $153 gain × 100 shares).\n\n**50/50 split (recommended):**\n$33,470 → BTC: +0.452 BTC → **2.015 BTC ✅**\n$33,470 → ETH: +14.28 ETH → **79.28 ETH**\n2029 base case: ~$732k from these positions alone.\n\nThis closes your BTC target permanently and gets ETH to 79. Monthly DCA closes the final 21 ETH gap by late 2026.\n\nWait for the trigger. You're $28 away.`;
+    if (q.includes('rsu') || q.includes('sell') && q.includes('msft')) {
+      return `Based on your thesis, MSFT RSUs should be sold on vest and rotated into ETH below $2,400.\n\n**The math on your 30 shares:**\n30 × $410 = $12,300 gross\nAfter tax (~$900): ~$11,400\nBuys: ~4.9 ETH @ $2,344\nNew ETH total: 17.4 ETH → 70% of your 25 target\n\nDon't accumulate employer stock beyond what vests. Your thesis is clear on this.`;
     }
-    if (q.includes('eth') && (q.includes('buy') || q.includes('entry'))) {
-      return `At $2,344 ETH your basis is $2,402 — you're $58 above breakeven.\n\nBuying here doesn't lower your basis meaningfully. Each ETH at $2,344 on 65 existing only moves your average by ~$0.87.\n\nYour thesis said ETH below $2,500 was the target. You're there. The question is whether Fear & Greed at 12 with ratio at 0.0313 is compelling enough to deploy.\n\nMy read: yes, but use the weekly block system not a lump sum. Your META at $1,850 is the real ETH deployment vehicle.`;
+    if (q.includes('eth') && (q.includes('buy') || q.includes('average') || q.includes('down'))) {
+      return `At $2,344 ETH your demo basis is $2,180 — you're $164 above breakeven.\n\nAveraging down now at $2,344 actually raises your basis slightly. Better to wait for a dip below $2,180 to meaningfully lower your average.\n\nYour thesis: DCA weekly below $2,400. Current price is in range — small blocks are fine. Don't deploy everything at once.\n\nFear & Greed at 12 historically precedes strong recoveries. The systematic approach wins here.`;
     }
     if (q.includes('target') || q.includes('track')) {
-      return `Here's where you stand:\n\n**BTC:** 1.5625 / 2.0 (78%) — 9 weekly blocks to close · done by mid-June\n**ETH:** 65 / 100 (65%) — META trigger at $1,850 gets you to 96, DCA closes to 100\n**NVDA:** Holding. $180 vs $300 target. 67% of the way there.\n**META:** $28 from $700 trigger. Reserve card loaded.\n\nYou're on track. The only active decision is whether to accelerate ETH deployment or wait for the $1,850 META trigger.`;
+      return `Here's where the demo portfolio stands:\n\n**BTC:** 0.42 / 1.0 (42%) — 12 weekly blocks to close · done by Q3\n**ETH:** 12.5 / 25 (50%) — DCA below $2,400 closes the gap\n**NVDA:** Holding. $180 vs $250 target. 72% of the way there.\n**SOL:** 48 coins. Stop loss at $100. Currently healthy at $148.\n\nYou're on track. The only active decision is whether to accelerate ETH DCA or prioritize the next BTC block.`;
     }
-    return `Based on your portfolio — NVDA at $85, ETH at $2,402 avg, BTC at $41k blended — here's my read:\n\nYour thesis is intact. BTC 78% to target, ETH 65% to target, META $28 from trigger. Fear & Greed at 12 historically precedes strong accumulation windows.\n\nWhat specific decision are you working through? I can run the exact math on any scenario against your basis and 2029 targets.`;
+    return `Based on the demo portfolio — NVDA at $124 basis, ETH at $2,180 avg, BTC at $58k blended — here's my read:\n\nYour thesis is intact. BTC 42% to target, ETH 50% to target. Fear & Greed at 12 historically precedes strong accumulation windows.\n\nThis is a demo portfolio. In the real product, Pivot knows YOUR exact basis, targets and thesis. What specific decision are you working through?`;
   }
 
   function getContextualReplies(query) {
     const q = query.toLowerCase();
-    if (q.includes('meta')) return ['What if META drops back to $600?', 'Should I set a limit order at $700?', 'Run the $850 META scenario too'];
-    if (q.includes('eth')) return ['What does my ETH basis look like at 100 ETH?', 'When does the ETH/BTC swap make sense?', 'Compare buying ETH vs BTC right now'];
-    if (q.includes('btc')) return ['How many weekly blocks to 2.0 BTC?', 'What if BTC drops to $65k?', 'BTC vs ETH for my next $10k'];
-    return ['Run a scenario for me', 'What should I do this week?', 'Check if I\'m contradicting my thesis', 'Am I on track for 2029?'];
+    if (q.includes('rsu') || q.includes('msft')) return ['How much ETH does that buy?', 'Should I sell all RSUs immediately?', 'What about the tax impact?'];
+    if (q.includes('eth')) return ['What does averaging down do to my basis?', 'When does the ETH/BTC swap make sense?', 'Compare ETH vs BTC right now'];
+    if (q.includes('btc')) return ['How many weekly blocks to 1.0 BTC?', 'What if BTC drops to $65k?', 'BTC vs ETH for my next $5k'];
+    return ['Run a scenario for me', 'What should I do this week?', 'Am I on track with my targets?', 'Check my ETH/BTC ratio'];
   }
 
   // ── INPUT HANDLING ───────────────────────
