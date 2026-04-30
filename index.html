@@ -1204,7 +1204,6 @@ Keep responses under 200 words unless running a multi-scenario analysis. Be thei
     const text = inputEl.value.trim();
     if (!text || isLoading) return;
     addMessage(text, 'user');
-    conversationHistory.push({ role: 'user', content: text });
     inputEl.value = '';
     inputEl.style.height = 'auto';
     quickRepliesEl.innerHTML = '';
@@ -1212,17 +1211,27 @@ Keep responses under 200 words unless running a multi-scenario analysis. Be thei
     sendBtn.disabled = true;
     showTyping();
 
+    // Keep last 6 messages for context but don't let history grow too large
+    conversationHistory.push({ role: 'user', content: text });
+    if (conversationHistory.length > 6) {
+      conversationHistory = conversationHistory.slice(-6);
+    }
+
     try {
       const response = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           model: 'claude-sonnet-4-20250514',
-          max_tokens: 1000,
+          max_tokens: 800,
           system: SYSTEM_PROMPT,
           messages: conversationHistory
         })
       });
+
+      if (!response.ok) {
+        throw new Error('API error ' + response.status);
+      }
 
       const data = await response.json();
       hideTyping();
@@ -1235,6 +1244,7 @@ Keep responses under 200 words unless running a multi-scenario analysis. Be thei
 
     } catch (err) {
       hideTyping();
+      conversationHistory.pop(); // remove failed message from history
       addMessage(generateFallback(text), 'assistant');
       setQuickReplies(['What should I do this week?', 'Check my targets', 'Run a scenario']);
     }
