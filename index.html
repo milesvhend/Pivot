@@ -527,7 +527,7 @@
   <div class="nav-center">
     <button class="nav-link" onclick="showPage('landing')">Home</button>
     <button class="nav-link" onclick="showPage('agent')">Agent</button>
-    <button class="nav-link" onclick="scrollTo('#pricing')">Pricing</button>
+    <button class="nav-link" onclick="scrollTo('#pricing')">Beta</button>
   </div>
   <div class="nav-right">
     <button class="nav-btn" onclick="showPage('agent')">Sign in</button>
@@ -546,17 +546,22 @@
       Introducing Pivot — The AI agent for your portfolio
     </div>
     <h1>
-      Your portfolio.<br />
-      One <em>intelligent</em> <strong>agent.</strong>
+      The AI agent for<br />
+      <em>your</em> <strong>portfolio.</strong>
     </h1>
     <p class="hero-sub">
-      Stocks, crypto, ETFs, RSUs — all in one place. Pivot is the AI wealth agent that knows your exact basis, remembers your thesis, and tells you exactly what to do when the market tests your conviction.
+      Stocks, crypto, ETFs — one intelligent agent. Pivot knows your exact basis, remembers your thesis, and tells you what to do when the market tests your conviction.
     </p>
+    <div style="display:flex;gap:20px;justify-content:center;margin-bottom:28px;flex-wrap:wrap;">
+      <div style="display:flex;align-items:center;gap:6px;font-size:13px;color:var(--text2);"><span style="color:var(--green);">✓</span> Stocks + crypto unified</div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:13px;color:var(--text2);"><span style="color:var(--green);">✓</span> Knows your exact basis</div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:13px;color:var(--text2);"><span style="color:var(--green);">✓</span> Holds you to your thesis</div>
+    </div>
     <div class="hero-cta">
       <button class="btn-primary" onclick="showPage('agent')">Try Pivot free →</button>
       <button class="btn-secondary" onclick="document.getElementById('how-section').scrollIntoView({behavior:'smooth'})">See how it works</button>
     </div>
-    <p class="hero-proof">Join <strong>1,200+ hybrid investors</strong> on the waitlist</p>
+    <p class="hero-proof">Free during beta · <strong>Join the waitlist</strong> for early access</p>
   </div>
 
   <div class="marquee-wrap">
@@ -673,7 +678,7 @@
   <div class="section">
     <div class="section-tag">Comparison</div>
     <h2>The end of one-size-fits-all<br /><strong>wealth management</strong></h2>
-    <p class="section-sub">A Morgan Stanley advisor charges $5,000/year on a $500k portfolio and doesn't know what ETH is. Pivot charges $29/month and knows your exact basis on every position across every asset class.</p>
+    <p class="section-sub">Traditional wealth managers charge 1% AUM and still give generic advice that ignores your crypto. Pivot is built for the way you actually invest — stocks and crypto together, with full memory of your thesis.</p>
     <div class="comparison">
       <div class="comp-card">
         <div class="comp-name">Traditional advisor + apps</div>
@@ -725,36 +730,36 @@
       <div class="sp-body">
         <div class="sp-chat">
           <div class="sp-label">Conversation</div>
-          <div class="sp-msg user">"I have NVDA, BTC, ETH, SOL, TSMC and MSFT RSUs — should I trim tech and rotate into crypto before the halving?"</div>
-          <div class="sp-msg ai">Good question — and the timing matters. Based on your exact positions, your NVDA at $85 basis gives you 112% cushion before any trim makes sense. Your TSMC RSUs have a wash sale window to watch. For crypto rotation here's how I'd think about BTC vs ETH vs SOL given your 2028 halving thesis...</div>
+          <div class="sp-msg user">"I have NVDA, ETH, BTC and some MSFT RSUs — should I sell my RSUs and rotate into crypto before the halving?"</div>
+          <div class="sp-msg ai">Good question — timing matters here. Your MSFT RSUs are short-term if vested under a year, so tax treatment changes the math. ETH at $2,344 is below your $2,400 DCA target — that's a clean entry. BTC is 42% to your 1.0 target. Here's how I'd think about the split...</div>
         </div>
         <div class="sp-result">
           <div class="sp-label">Scenario analysis</div>
           <div class="sp-scenario-card">
             <div class="sp-sc-header">
-              <div class="sp-sc-name">Trim NVDA 20%, rotate to BTC</div>
+              <div class="sp-sc-name">Sell RSUs → split into ETH + BTC</div>
               <div class="sp-sc-result" style="color:var(--green);">Recommended</div>
             </div>
-            <div class="sp-sc-detail">Reduces AI chip concentration 38%→30%. Deploys $72k after tax into BTC at $74k. Closes BTC target by August.</div>
+            <div class="sp-sc-detail">30 shares × $410 = $12,300. After tax: ~$10,400. 60/40 split — closes both crypto targets without touching core stock positions.</div>
             <div class="sp-sc-numbers">
-              <div class="sp-sc-num"><span class="sp-sc-num-label">Net proceeds</span><span class="sp-sc-num-val">$72,400</span></div>
-              <div class="sp-sc-num"><span class="sp-sc-num-label">Tax (20%)</span><span class="sp-sc-num-val">$19,600</span></div>
-              <div class="sp-sc-num"><span class="sp-sc-num-label">2029 value</span><span class="sp-sc-num-val">$890k</span></div>
+              <div class="sp-sc-num"><span class="sp-sc-num-label">After tax</span><span class="sp-sc-num-val">~$10,400</span></div>
+              <div class="sp-sc-num"><span class="sp-sc-num-label">ETH added</span><span class="sp-sc-num-val">+2.7 ETH</span></div>
+              <div class="sp-sc-num"><span class="sp-sc-num-label">BTC added</span><span class="sp-sc-num-val">+0.056</span></div>
             </div>
             <div class="sp-sc-bar"><div class="sp-sc-fill" style="width:88%;background:var(--green);"></div></div>
           </div>
           <div class="sp-scenario-card">
             <div class="sp-sc-header">
-              <div class="sp-sc-name">Hold tech, deploy RSUs into ETH + SOL</div>
+              <div class="sp-sc-name">Hold RSUs, DCA weekly into ETH</div>
               <div class="sp-sc-result" style="color:var(--accent);">Strong</div>
             </div>
-            <div class="sp-sc-detail">Keep NVDA conviction. Deploy vesting RSUs into ETH below $2,400 and SOL below $150. Ratio play intact.</div>
+            <div class="sp-sc-detail">Keep RSUs for long-term gains treatment. Use monthly contributions to DCA ETH below $2,400. Better tax efficiency, slower accumulation.</div>
             <div class="sp-sc-numbers">
-              <div class="sp-sc-num"><span class="sp-sc-num-label">ETH added</span><span class="sp-sc-num-val">+18 ETH</span></div>
-              <div class="sp-sc-num"><span class="sp-sc-num-label">New basis</span><span class="sp-sc-num-val">$2,381</span></div>
-              <div class="sp-sc-num"><span class="sp-sc-num-label">2029 value</span><span class="sp-sc-num-val">$820k</span></div>
+              <div class="sp-sc-num"><span class="sp-sc-num-label">Monthly</span><span class="sp-sc-num-val">~$500</span></div>
+              <div class="sp-sc-num"><span class="sp-sc-num-label">ETH/month</span><span class="sp-sc-num-val">~0.21</span></div>
+              <div class="sp-sc-num"><span class="sp-sc-num-label">Target by</span><span class="sp-sc-num-val">Q4 2026</span></div>
             </div>
-            <div class="sp-sc-bar"><div class="sp-sc-fill" style="width:74%;background:var(--accent);"></div></div>
+            <div class="sp-sc-bar"><div class="sp-sc-fill" style="width:72%;background:var(--accent);"></div></div>
           </div>
         </div>
       </div>
@@ -763,47 +768,45 @@
 
   <!-- PRICING -->
   <div class="section" id="pricing">
-    <div class="section-tag">Pricing</div>
-    <h2>One agent.<br /><strong>Every portfolio.</strong></h2>
-    <p class="section-sub">Start free. The agent gets smarter about your portfolio the longer you use it.</p>
-    <div class="pricing">
-      <div class="price-card">
-        <div class="price-name">Starter</div>
-        <div class="price-amount">$0</div>
-        <div class="price-period">Free forever</div>
-        <div class="price-divider"></div>
-        <div class="pf"><div class="pf-dot"><svg viewBox="0 0 9 9" fill="none"><polyline points="1.5,4.5 3.5,6.5 7.5,2" stroke="#3ecf8e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Portfolio overview</div>
-        <div class="pf"><div class="pf-dot"><svg viewBox="0 0 9 9" fill="none"><polyline points="1.5,4.5 3.5,6.5 7.5,2" stroke="#3ecf8e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>3 positions tracked</div>
-        <div class="pf"><div class="pf-dot"><svg viewBox="0 0 9 9" fill="none"><polyline points="1.5,4.5 3.5,6.5 7.5,2" stroke="#3ecf8e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Basic thesis intake</div>
-        <div class="pf"><div class="pf-dot"><svg viewBox="0 0 9 9" fill="none"><polyline points="1.5,4.5 3.5,6.5 7.5,2" stroke="#3ecf8e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Fear &amp; Greed signal</div>
-        <button class="price-btn" onclick="showPage('agent')">Get started</button>
+    <div class="section-tag">Beta access</div>
+    <h2>Join the waitlist.<br /><strong>Free during beta.</strong></h2>
+    <p class="section-sub">Pivot is free to use during beta. We're onboarding hybrid investors one by one — hands on, no waitlist queue for serious users. Pricing will be determined by what early users tell us it's worth.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:88px;">
+      <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:28px;">
+        <div style="font-size:13px;color:var(--text2);margin-bottom:8px;">What you get</div>
+        <div style="font-size:28px;font-weight:500;letter-spacing:-1px;margin-bottom:4px;">Free</div>
+        <div style="font-size:12px;color:var(--text3);margin-bottom:20px;">during beta</div>
+        <div style="height:1px;background:var(--border);margin-bottom:16px;"></div>
+        <div class="pf"><div class="pf-dot"><svg viewBox="0 0 9 9" fill="none"><polyline points="1.5,4.5 3.5,6.5 7.5,2" stroke="#3ecf8e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Full AI agent access</div>
+        <div class="pf"><div class="pf-dot"><svg viewBox="0 0 9 9" fill="none"><polyline points="1.5,4.5 3.5,6.5 7.5,2" stroke="#3ecf8e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Portfolio + thesis setup</div>
+        <div class="pf"><div class="pf-dot"><svg viewBox="0 0 9 9" fill="none"><polyline points="1.5,4.5 3.5,6.5 7.5,2" stroke="#3ecf8e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Scenario modeling</div>
+        <div class="pf"><div class="pf-dot"><svg viewBox="0 0 9 9" fill="none"><polyline points="1.5,4.5 3.5,6.5 7.5,2" stroke="#3ecf8e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Trigger alerts</div>
+        <div class="pf"><div class="pf-dot"><svg viewBox="0 0 9 9" fill="none"><polyline points="1.5,4.5 3.5,6.5 7.5,2" stroke="#3ecf8e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Direct founder access</div>
+        <button class="price-btn price-btn-primary" style="margin-top:20px;" onclick="showPage('agent')">Try it free →</button>
       </div>
-      <div class="price-card featured">
-        <div class="price-tag">Most popular</div>
-        <div class="price-name">Pro Agent</div>
-        <div class="price-amount">$29</div>
-        <div class="price-period">per month &bull; cancel anytime</div>
-        <div class="price-divider"></div>
-        <div class="pf"><div class="pf-dot"><svg viewBox="0 0 9 9" fill="none"><polyline points="1.5,4.5 3.5,6.5 7.5,2" stroke="#3ecf8e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Everything in Starter</div>
-        <div class="pf"><div class="pf-dot"><svg viewBox="0 0 9 9" fill="none"><polyline points="1.5,4.5 3.5,6.5 7.5,2" stroke="#3ecf8e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Unlimited positions + tax lots</div>
-        <div class="pf"><div class="pf-dot"><svg viewBox="0 0 9 9" fill="none"><polyline points="1.5,4.5 3.5,6.5 7.5,2" stroke="#3ecf8e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Full scenario modeling</div>
-        <div class="pf"><div class="pf-dot"><svg viewBox="0 0 9 9" fill="none"><polyline points="1.5,4.5 3.5,6.5 7.5,2" stroke="#3ecf8e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>ETH/BTC ratio tracker</div>
-        <div class="pf"><div class="pf-dot"><svg viewBox="0 0 9 9" fill="none"><polyline points="1.5,4.5 3.5,6.5 7.5,2" stroke="#3ecf8e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Thesis accountability system</div>
-        <div class="pf"><div class="pf-dot"><svg viewBox="0 0 9 9" fill="none"><polyline points="1.5,4.5 3.5,6.5 7.5,2" stroke="#3ecf8e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Rotation trigger alerts</div>
+      <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:28px;">
+        <div style="font-size:13px;color:var(--text2);margin-bottom:8px;">What we're building</div>
+        <div style="font-size:28px;font-weight:500;letter-spacing:-1px;margin-bottom:4px;">Pro</div>
+        <div style="font-size:12px;color:var(--text3);margin-bottom:20px;">coming soon</div>
+        <div style="height:1px;background:var(--border);margin-bottom:16px;"></div>
+        <div class="pf"><div class="pf-dot"><svg viewBox="0 0 9 9" fill="none"><polyline points="1.5,4.5 3.5,6.5 7.5,2" stroke="#3ecf8e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Brokerage sync</div>
+        <div class="pf"><div class="pf-dot"><svg viewBox="0 0 9 9" fill="none"><polyline points="1.5,4.5 3.5,6.5 7.5,2" stroke="#3ecf8e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Tax lot optimization</div>
+        <div class="pf"><div class="pf-dot"><svg viewBox="0 0 9 9" fill="none"><polyline points="1.5,4.5 3.5,6.5 7.5,2" stroke="#3ecf8e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Real-time price alerts</div>
+        <div class="pf"><div class="pf-dot"><svg viewBox="0 0 9 9" fill="none"><polyline points="1.5,4.5 3.5,6.5 7.5,2" stroke="#3ecf8e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Weekly action plans</div>
         <div class="pf"><div class="pf-dot"><svg viewBox="0 0 9 9" fill="none"><polyline points="1.5,4.5 3.5,6.5 7.5,2" stroke="#3ecf8e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>2029 projection engine</div>
-        <button class="price-btn price-btn-primary" onclick="showPage('agent')">Start free trial</button>
+        <button class="price-btn" style="margin-top:20px;" onclick="document.getElementById('cta-email').focus()">Join waitlist →</button>
       </div>
-      <div class="price-card">
-        <div class="price-name">Advisor</div>
-        <div class="price-amount">$99</div>
-        <div class="price-period">per month</div>
-        <div class="price-divider"></div>
+      <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:28px;">
+        <div style="font-size:13px;color:var(--text2);margin-bottom:8px;">For power users</div>
+        <div style="font-size:28px;font-weight:500;letter-spacing:-1px;margin-bottom:4px;">Advisor</div>
+        <div style="font-size:12px;color:var(--text3);margin-bottom:20px;">coming soon</div>
+        <div style="height:1px;background:var(--border);margin-bottom:16px;"></div>
         <div class="pf"><div class="pf-dot"><svg viewBox="0 0 9 9" fill="none"><polyline points="1.5,4.5 3.5,6.5 7.5,2" stroke="#3ecf8e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Everything in Pro</div>
-        <div class="pf"><div class="pf-dot"><svg viewBox="0 0 9 9" fill="none"><polyline points="1.5,4.5 3.5,6.5 7.5,2" stroke="#3ecf8e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Live brokerage sync</div>
-        <div class="pf"><div class="pf-dot"><svg viewBox="0 0 9 9" fill="none"><polyline points="1.5,4.5 3.5,6.5 7.5,2" stroke="#3ecf8e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Tax optimization signals</div>
         <div class="pf"><div class="pf-dot"><svg viewBox="0 0 9 9" fill="none"><polyline points="1.5,4.5 3.5,6.5 7.5,2" stroke="#3ecf8e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Multi-account support</div>
+        <div class="pf"><div class="pf-dot"><svg viewBox="0 0 9 9" fill="none"><polyline points="1.5,4.5 3.5,6.5 7.5,2" stroke="#3ecf8e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Custom strategy engine</div>
         <div class="pf"><div class="pf-dot"><svg viewBox="0 0 9 9" fill="none"><polyline points="1.5,4.5 3.5,6.5 7.5,2" stroke="#3ecf8e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Priority AI agent</div>
-        <button class="price-btn" onclick="showPage('agent')">Contact us</button>
+        <div class="pf"><div class="pf-dot"><svg viewBox="0 0 9 9" fill="none"><polyline points="1.5,4.5 3.5,6.5 7.5,2" stroke="#3ecf8e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Founder-level access</div>
+        <button class="price-btn" style="margin-top:20px;" onclick="document.getElementById('cta-email').focus()">Get in touch →</button>
       </div>
     </div>
   </div>
@@ -812,7 +815,7 @@
   <div class="section">
     <div class="cta-banner">
       <h2>Your portfolio deserves<br /><strong>a smarter advisor.</strong></h2>
-      <p class="section-sub">The AI wealth agent built for investors who own both stocks and crypto — across every asset class, at any hour. Join 1,200+ hybrid investors on the waitlist.</p>
+      <p class="section-sub">The AI wealth agent built for investors who own both stocks and crypto — across every asset class, at any hour. Free during beta.</p>
       <div class="cta-input-row">
         <input class="cta-input" type="email" id="cta-email" placeholder="your@email.com" />
         <button class="btn-primary" onclick="handleWaitlist()">Join waitlist</button>
@@ -1008,7 +1011,7 @@
 
         <!-- TRIGGERS TAB (hidden) -->
         <div id="tab-triggers" style="display:none;">
-          <div class="ts-label" style="margin-bottom:8px;">META reserve card</div>
+          <div class="ts-label" style="margin-bottom:8px;">Trigger rules</div>
           <div class="trigger-list">
             <div class="trigger-item"><div class="ti-dot" style="background:var(--accent);"></div><div><div class="ti-text">ETH drops to $1,900 → buy aggressively, deploy reserve cash</div><div class="ti-price">$8k reserve → +4.2 ETH → 16.7 ETH total</div></div></div>
             <div class="trigger-item"><div class="ti-dot" style="background:var(--amber);"></div><div><div class="ti-text">NVDA hits $250 → sell 50 shares, rotate to BTC</div><div class="ti-price">$12,500 → +0.17 BTC → 0.59 BTC total</div></div></div>
@@ -1085,13 +1088,15 @@ Investment thesis: Long horizon 2028-2029 halving cycle. Weekly BTC blocks. ETH 
 NOTE: This is a demo portfolio to show how Pivot works. In the real product, users enter their own holdings, basis, targets and triggers through the onboarding flow.
 
 Your personality:
-- Direct and specific — always use their actual demo numbers
-- Call out fear-based decisions vs thesis-based decisions
-- Run exact math on scenarios (after-tax at 20% LTCG, specific basis)
-- Remember their weakness: hesitates at entries, second-guesses under price pressure
-- Never give generic advice — always reference their specific situation
+- Helpful and exploratory first — surface considerations, run math, ask smart clarifying questions
+- Specific and grounded — always reference the demo portfolio numbers when relevant
+- A brilliant co-pilot, not a gatekeeper — help users think through decisions, don't block them
+- Run exact math on scenarios when asked (after-tax at 20% LTCG, specific basis)
+- Surface tax implications, timing considerations, and thesis alignment naturally
+- Keep it conversational — like a knowledgeable friend who happens to know their full portfolio
+- If someone wants to add a position or make a change, help them think it through with the right questions — don't lecture
 
-When they ask about scenarios, run the exact numbers: proceeds after tax, assets bought, new totals, 2029 projected value.
+When they ask about scenarios, run the exact numbers: proceeds after tax, assets bought, new totals, projected outcomes.
 
 Keep responses under 200 words unless running a multi-scenario analysis. Be their co-pilot, not a textbook.`;
 
@@ -1185,12 +1190,12 @@ Keep responses under 200 words unless running a multi-scenario analysis. Be thei
   }
 
   function addScenarioPrompt() {
-    inputEl.value = 'Run a scenario: if I sell all META at $700, what does that do to my BTC and ETH targets with exact numbers?';
+    inputEl.value = 'Run a scenario: if I sell my MSFT RSUs and split into ETH and BTC, what does that look like with exact numbers?';
     inputEl.focus();
   }
 
   function addResearchPrompt() {
-    inputEl.value = 'Research question: given my 2029 timeline and ETH basis of $2,402, is buying ETH at $2,344 today a good entry?';
+    inputEl.value = 'Research question: given my 2028 halving timeline and ETH basis of $2,180, is buying ETH at $2,344 today a good entry?';
     inputEl.focus();
   }
 
