@@ -1250,15 +1250,6 @@ Keep responses under 200 words unless running a multi-scenario analysis. Be thei
     isLoading = false;
     sendBtn.disabled = false;
   }
-      hideTyping();
-      conversationHistory.pop(); // remove failed message from history
-      addMessage(generateFallback(text), 'assistant');
-      setQuickReplies(['What should I do this week?', 'Check my targets', 'Run a scenario']);
-    }
-
-    isLoading = false;
-    sendBtn.disabled = false;
-  }
 
   function generateFallback(query) {
     const q = query.toLowerCase();
