@@ -3,10 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pivot — The AI agent for hybrid investors</title>
-  <meta name="description" content="The AI agent that knows your exact basis, remembers your thesis, and helps you research every buy scenario — for investors who own both stocks and crypto." />
-  <meta property="og:title" content="Pivot — The AI agent for hybrid investors" />
-  <meta property="og:description" content="Not an advisor. Not a dashboard. An agent that works for your specific portfolio." />
+  <title>Pivot — The AI agent for your portfolio</title>
+  <meta name="description" content="Stocks, crypto, ETFs — one intelligent agent. Pivot knows your exact basis, remembers your thesis, and tells you what to do when the market tests your conviction." />
+  <meta property="og:title" content="Pivot — The AI agent for your portfolio" />
+  <meta property="og:description" content="Stocks, crypto, ETFs — one intelligent agent. Pivot knows your exact basis, remembers your thesis, and tells you what to do when the market tests your conviction." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://getpivot.chat" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Pivot — The AI agent for your portfolio" />
+  <meta name="twitter:description" content="Stocks, crypto, ETFs — one intelligent agent. Pivot knows your exact basis, remembers your thesis, and tells you what to do when the market tests your conviction." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -57,7 +62,10 @@
       border-bottom: 1px solid var(--border);
       padding: 0 32px;
       height: 56px;
+    }
+    .nav-inner {
       display: flex; align-items: center; justify-content: space-between;
+      height: 100%; max-width: 1200px; margin: 0 auto;
     }
     .logo { font-size: 18px; font-weight: 500; letter-spacing: -0.4px; cursor: pointer; }
     .logo-dot { color: var(--accent); }
@@ -235,6 +243,10 @@
     .sp-sc-result { font-weight: 500; }
     .sp-sc-detail { font-size: 12px; color: var(--text2); line-height: 1.5; }
     .sp-sc-bar { height: 3px; background: var(--bg4); border-radius: 2px; margin-top: 8px; overflow: hidden; }
+    .sp-sc-numbers { display: flex; gap: 20px; margin-top: 10px; flex-wrap: wrap; }
+    .sp-sc-num { display: flex; flex-direction: column; gap: 3px; }
+    .sp-sc-num-label { font-size: 11px; color: var(--text3); font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.5px; }
+    .sp-sc-num-val { font-size: 14px; font-weight: 500; color: var(--text); }
     .sp-sc-fill { height: 100%; border-radius: 2px; }
 
     /* PRICING */
@@ -579,6 +591,7 @@
 
       /* Nav */
       nav { padding: 0 16px; }
+      .nav-inner { width: 100%; }
       .nav-right { gap: 6px; }
       .nav-btn { padding: 6px 12px; font-size: 12px; }
 
@@ -718,6 +731,7 @@
     </div>
   </div>
 </div>
+  <div class="nav-inner">
   <div class="logo" onclick="showPage('landing')">Pivot<span class="logo-dot">.</span></div>
   <div class="nav-center">
     <button class="nav-link" onclick="showPage('landing')">Home</button>
@@ -727,6 +741,7 @@
   <div class="nav-right">
     <button class="nav-btn" onclick="showPage('agent')">Sign in</button>
     <button class="nav-btn nav-btn-primary" onclick="showPage('agent')">Try Pivot free</button>
+  </div>
   </div>
 </nav>
 
@@ -824,7 +839,7 @@
         </div>
         <div class="edge-title">Remembers your exact basis</div>
         <div class="edge-desc">Your NVDA at $124 basis. Your SOL at $110. Your BTC blended at $58k. Your MSFT RSUs at $380. Pivot knows every position across every asset class and uses it in every analysis.</div>
-        <div class="edge-vs">vs advisor: <strong>they guess. Pivot knows.</strong></div>
+        <div class="edge-vs">vs your advisor: <strong>they guess your basis. Pivot knows it.</strong></div>
       </div>
       <div class="edge-card">
         <div class="edge-icon" style="background:rgba(62,207,142,0.1);">
@@ -832,7 +847,7 @@
         </div>
         <div class="edge-title">Scenario modeling on your numbers</div>
         <div class="edge-desc">Should you trim NVDA and rotate into BTC? Sell your RSUs and deploy into ETH? Hold TSMC through earnings? Pivot runs the exact math — after tax, at your basis, against your timeline — in seconds.</div>
-        <div class="edge-vs">vs robo: <strong>they rebalance. Pivot strategizes.</strong></div>
+        <div class="edge-vs">vs Betterment: <strong>they rebalance. Pivot strategizes.</strong></div>
       </div>
       <div class="edge-card">
         <div class="edge-icon" style="background:rgba(245,158,11,0.1);">
@@ -876,7 +891,7 @@
     <p class="section-sub">Traditional wealth managers charge 1% AUM and still give generic advice that ignores your crypto. Pivot is built for the way you actually invest — stocks and crypto together, with full memory of your thesis.</p>
     <div class="comparison">
       <div class="comp-card">
-        <div class="comp-name">Traditional advisor + apps</div>
+        <div class="comp-name">Traditional advisor</div>
         <div class="comp-row"><span class="comp-icon cross"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><line x1="3" y1="3" x2="7" y2="7" stroke="#3a3937" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="3" x2="3" y2="7" stroke="#3a3937" stroke-width="1.5" stroke-linecap="round"/></svg></span>Knows your exact basis</div>
         <div class="comp-row"><span class="comp-icon cross"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><line x1="3" y1="3" x2="7" y2="7" stroke="#3a3937" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="3" x2="3" y2="7" stroke="#3a3937" stroke-width="1.5" stroke-linecap="round"/></svg></span>Understands crypto + stocks together</div>
         <div class="comp-row"><span class="comp-icon partial"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><line x1="2.5" y1="5" x2="7.5" y2="5" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round"/></svg></span>Tax lot optimization</div>
@@ -896,7 +911,7 @@
         <div class="comp-row"><span class="comp-icon check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><polyline points="2,5 4,7.5 8,3" stroke="#3ecf8e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Remembers every decision</div>
       </div>
       <div class="comp-card">
-        <div class="comp-name">Robinhood / Coinbase / TradingView</div>
+        <div class="comp-name">Robinhood · Coinbase · TradingView</div>
         <div class="comp-row"><span class="comp-icon partial"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><line x1="2.5" y1="5" x2="7.5" y2="5" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round"/></svg></span>Knows your exact basis</div>
         <div class="comp-row"><span class="comp-icon cross"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><line x1="3" y1="3" x2="7" y2="7" stroke="#3a3937" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="3" x2="3" y2="7" stroke="#3a3937" stroke-width="1.5" stroke-linecap="round"/></svg></span>Understands crypto + stocks together</div>
         <div class="comp-row"><span class="comp-icon cross"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><line x1="3" y1="3" x2="7" y2="7" stroke="#3a3937" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="3" x2="3" y2="7" stroke="#3a3937" stroke-width="1.5" stroke-linecap="round"/></svg></span>Tax lot optimization</div>
