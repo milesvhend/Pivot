@@ -505,24 +505,219 @@
     .ti-text { font-size: 12px; color: var(--text2); flex: 1; line-height: 1.4; }
     .ti-price { font-size: 10px; color: var(--text3); font-family: var(--mono); margin-top: 2px; }
 
-    /* RESPONSIVE */
+    /* WELCOME MODAL */
+    .modal-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(8px); z-index: 1000;
+      display: flex; align-items: center; justify-content: center;
+      padding: 24px; animation: fadeIn 0.2s ease;
+    }
+    .modal-overlay.hidden { display: none; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .modal {
+      background: var(--bg2); border: 1px solid var(--border2);
+      border-radius: 20px; padding: 36px; max-width: 480px; width: 100%;
+      animation: slideUp 0.25s ease;
+    }
+    @keyframes slideUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    .modal-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--accent-dim); border: 1px solid rgba(91,159,255,0.2);
+      border-radius: 20px; padding: 4px 12px;
+      font-family: var(--mono); font-size: 11px; color: var(--accent);
+      margin-bottom: 20px;
+    }
+    .modal-badge-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); animation: blink 2s infinite; }
+    .modal h3 { font-size: 22px; font-weight: 400; letter-spacing: -0.5px; color: var(--text); margin-bottom: 10px; }
+    .modal h3 strong { font-weight: 500; }
+    .modal-sub { font-size: 14px; color: var(--text2); line-height: 1.6; margin-bottom: 24px; font-weight: 300; }
+    .modal-features { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+    .modal-feature { display: flex; align-items: flex-start; gap: 12px; }
+    .modal-feature-icon {
+      width: 32px; height: 32px; border-radius: 9px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .modal-feature-icon svg { width: 15px; height: 15px; }
+    .modal-feature-title { font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 2px; }
+    .modal-feature-desc { font-size: 12px; color: var(--text2); line-height: 1.5; }
+    .modal-divider { height: 1px; background: var(--border); margin-bottom: 20px; }
+    .modal-cta-row { display: flex; gap: 8px; }
+    .modal-btn-primary {
+      flex: 1; padding: 12px; border-radius: 10px; border: none;
+      background: var(--accent); color: #fff; font-size: 14px;
+      font-weight: 500; font-family: var(--font); cursor: pointer;
+      transition: background 0.15s;
+    }
+    .modal-btn-primary:hover { background: #4a8eff; }
+    .modal-btn-secondary {
+      padding: 12px 18px; border-radius: 10px;
+      border: 1px solid var(--border2); background: transparent;
+      color: var(--text2); font-size: 14px; font-family: var(--font);
+      cursor: pointer; transition: all 0.15s;
+    }
+    .modal-btn-secondary:hover { background: var(--bg3); color: var(--text); }
     @media (max-width: 900px) {
       .agent-right { display: none; }
-      .edge-grid { grid-template-columns: 1fr; }
+      .edge-grid { grid-template-columns: 1fr 1fr; }
       .comparison { grid-template-columns: 1fr; }
       .pricing { grid-template-columns: 1fr; }
       .sp-body { grid-template-columns: 1fr; }
       nav .nav-center { display: none; }
+      .how-steps { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .testimonials { grid-template-columns: 1fr; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
     }
+
     @media (max-width: 640px) {
+      /* Agent layout */
       .agent-sidebar { display: none; }
-      h1 { font-size: 36px; }
+      .agent-layout { height: calc(100vh - 56px); }
+
+      /* Typography */
+      h1 { font-size: 32px; letter-spacing: -1px; }
+      h2 { font-size: 26px; letter-spacing: -0.5px; }
+
+      /* Nav */
+      nav { padding: 0 16px; }
+      .nav-right { gap: 6px; }
+      .nav-btn { padding: 6px 12px; font-size: 12px; }
+
+      /* Hero */
+      .hero { padding: 56px 20px 48px; }
+      .hero-eyebrow { font-size: 11px; padding: 4px 10px; text-align: center; }
+      .hero-sub { font-size: 15px; margin-bottom: 20px; }
+      .hero-cta { flex-direction: column; align-items: center; gap: 8px; }
+      .hero-cta .btn-primary,
+      .hero-cta .btn-secondary { width: 100%; max-width: 320px; text-align: center; }
+      .hero-proof { font-size: 12px; }
+
+      /* Benefit checkmarks */
+      .hero > div[style*="gap:20px"] {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px !important;
+      }
+
+      /* Section padding */
+      .section { padding: 0 16px 56px; }
+
+      /* Stats */
+      .stats { grid-template-columns: repeat(2, 1fr); gap: 1px; }
+      .stat { padding: 20px 16px; }
+      .stat-val { font-size: 26px; }
+
+      /* Marquee */
+      .marquee-wrap { margin-bottom: 56px; }
+
+      /* Edge grid */
+      .edge-grid { grid-template-columns: 1fr; }
+      .edge-card { padding: 24px 20px; }
+
+      /* How steps */
+      .how-steps { grid-template-columns: 1fr; gap: 28px; }
+
+      /* Comparison */
+      .comparison { grid-template-columns: 1fr; gap: 12px; }
+      .comp-card { padding: 20px; }
+
+      /* Scenario preview */
+      .sp-body { grid-template-columns: 1fr; }
+      .sp-chat { border-right: none; border-bottom: 1px solid var(--border); }
+      .sp-chat, .sp-result { padding: 16px; }
+      .sp-msg { font-size: 12px; }
+
+      /* Pricing / beta */
+      .section > div[style*="grid-template-columns:repeat(3"] {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+      }
+
+      /* CTA banner */
+      .cta-banner { padding: 48px 20px; }
+      .cta-input-row { flex-direction: column; max-width: 100%; }
+      .cta-input { width: 100%; }
+      .cta-input-row .btn-primary { width: 100%; text-align: center; }
+
+      /* Testimonials */
+      .testimonials { grid-template-columns: 1fr; }
+      .testi { padding: 20px; }
+
+      /* Chat panel */
+      .messages { padding: 16px; gap: 12px; }
+      .msg-bubble { font-size: 13px; max-width: 92%; }
+      .input-area { padding: 12px 16px 16px; }
+      .quick-replies { padding: 0 16px 8px; gap: 6px; }
+      .qr { font-size: 11px; padding: 5px 10px; }
+      .chat-topbar { padding: 10px 16px; }
+      .chat-actions { gap: 4px; }
+      .chat-action-btn { font-size: 11px; padding: 4px 8px; }
+
+      /* Modal */
+      .modal { padding: 24px 20px; }
+      .modal h3 { font-size: 18px; }
+      .modal-sub { font-size: 13px; }
+      .modal-features { gap: 10px; }
+      .modal-feature-desc { font-size: 11px; }
+      .modal-cta-row { flex-direction: column; }
+      .modal-btn-secondary { text-align: center; }
+
+      /* Footer */
+      footer { flex-direction: column; gap: 14px; text-align: center; padding: 24px 16px; }
+      .footer-links { flex-wrap: wrap; justify-content: center; gap: 14px; }
+    }
+
+    @media (max-width: 380px) {
+      h1 { font-size: 28px; }
+      .stat-val { font-size: 22px; }
+      .nav-btn.nav-btn-primary { display: none; }
     }
   </style>
 </head>
 <body>
 
-<nav>
+<!-- WELCOME MODAL -->
+<div class="modal-overlay hidden" id="welcome-modal">
+  <div class="modal">
+    <div class="modal-badge"><div class="modal-badge-dot"></div> Demo mode</div>
+    <h3>Welcome to <strong>Pivot.</strong></h3>
+    <p class="modal-sub">You're exploring a live demo with a sample portfolio — stocks, crypto, and targets already loaded. Here's what you can do and what's coming in the full version.</p>
+    <div class="modal-features">
+      <div class="modal-feature">
+        <div class="modal-feature-icon" style="background:rgba(91,159,255,0.1);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#5b9fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div>
+          <div class="modal-feature-title">Ask the agent anything</div>
+          <div class="modal-feature-desc">Try asking about buying ETH, running a scenario, or what to do this week. The AI reasons about the demo portfolio in real time.</div>
+        </div>
+      </div>
+      <div class="modal-feature">
+        <div class="modal-feature-icon" style="background:rgba(62,207,142,0.1);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#3ecf8e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        </div>
+        <div>
+          <div class="modal-feature-title">Explore the demo portfolio</div>
+          <div class="modal-feature-desc">The sidebar shows a sample hybrid portfolio — NVDA, ETH, BTC, SOL, GOOGL, MSFT RSUs. The right panel shows thesis targets and trigger rules.</div>
+        </div>
+      </div>
+      <div class="modal-feature">
+        <div class="modal-feature-icon" style="background:rgba(245,158,11,0.1);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <div>
+          <div class="modal-feature-title">In the full version</div>
+          <div class="modal-feature-desc">Enter your own holdings, cost basis, and targets. Set your thesis and trigger levels. Pivot becomes your personal AI agent — built entirely around your portfolio.</div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-divider"></div>
+    <div class="modal-cta-row">
+      <button class="modal-btn-primary" onclick="dismissModal()">Explore the demo →</button>
+      <button class="modal-btn-secondary" onclick="dismissModal(); window.scrollTo(0,0);">Join waitlist</button>
+    </div>
+  </div>
+</div>
   <div class="logo" onclick="showPage('landing')">Pivot<span class="logo-dot">.</span></div>
   <div class="nav-center">
     <button class="nav-link" onclick="showPage('landing')">Home</button>
@@ -1105,6 +1300,15 @@ Keep responses under 200 words unless running a multi-scenario analysis. Be thei
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.getElementById('page-' + page).classList.add('active');
     document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+    if (page === 'agent') {
+      setTimeout(() => {
+        document.getElementById('welcome-modal').classList.remove('hidden');
+      }, 300);
+    }
+  }
+
+  function dismissModal() {
+    document.getElementById('welcome-modal').classList.add('hidden');
   }
 
   function scrollTo(selector) {
