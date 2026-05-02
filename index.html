@@ -8,10 +8,14 @@
   <meta property="og:title" content="Pivot — The AI agent for your portfolio" />
   <meta property="og:description" content="Stocks, crypto, ETFs — one intelligent agent. Pivot knows your exact basis, remembers your thesis, and tells you what to do when the market tests your conviction." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://getpivot.chat" />
+  <meta property="og:url" content="https://www.getpivot.chat" />
+  <meta property="og:image" content="https://www.getpivot.chat/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Pivot — The AI agent for your portfolio" />
   <meta name="twitter:description" content="Stocks, crypto, ETFs — one intelligent agent. Pivot knows your exact basis, remembers your thesis, and tells you what to do when the market tests your conviction." />
+  <meta name="twitter:image" content="https://www.getpivot.chat/og-image.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -822,8 +826,6 @@
 <div class="mobile-menu" id="mobile-menu">
   <button class="mobile-menu-link" onclick="showPage('landing');toggleMenu()">Home</button>
   <button class="mobile-menu-link" onclick="showPage('agent');toggleMenu()">Try the demo</button>
-  <button class="mobile-menu-link" onclick="scrollTo('#how-section');toggleMenu()">How it works</button>
-  <button class="mobile-menu-link" onclick="scrollTo('#pricing');toggleMenu()">Beta access</button>
   <button class="mobile-menu-cta" onclick="showPage('agent');toggleMenu()">Try Pivot free →</button>
 </div>
 
@@ -1401,7 +1403,7 @@
 </div>
 
 <!-- MOBILE FLOATING BUTTON -->
-<button class="mobile-panel-btn" id="mobile-panel-btn" onclick="openDrawer()">
+<button class="mobile-panel-btn" id="mobile-panel-btn" onclick="openDrawer()" style="display:none;">
   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
   Portfolio
 </button>
@@ -1487,6 +1489,8 @@ Keep responses under 200 words unless running a multi-scenario analysis. Be thei
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.getElementById('page-' + page).classList.add('active');
     document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+    const portfolioBtn = document.getElementById('mobile-panel-btn');
+    if (portfolioBtn) portfolioBtn.style.display = page === 'agent' ? 'flex' : 'none';
     if (page === 'agent') {
       setTimeout(() => {
         document.getElementById('welcome-modal').classList.remove('hidden');
